@@ -17,7 +17,7 @@
 
 ## 使用方法
 * 将所有文件按目录上传至cmstop服务器
-* 修改config/articlesmp.php，进行相关参数设置
+* 修改config/articlespm.php，进行相关参数设置
 * 修改apps/article/plugin/model_admin_article/config.php，增加一行：'articlespm' => array('after_add', 'after_edit')
 * 在后台计划任务中添加计划任务，参数分别为：app=article&controller=articlespm&action=cron
 
