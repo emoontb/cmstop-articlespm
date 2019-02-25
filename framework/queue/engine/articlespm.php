@@ -9,10 +9,12 @@ class queue_articlespm extends queue_engine
     function execute(array $params)
     {
 
-        $accessKey = config('articlespm', 'accessKey');
-        $timestamp = intval(microtime(true)*1000);
-        $signature = md5(config('articlespm', 'secretKey') . $timestamp . $accessKey);
-        $url = "https://api.wts.xinwen.cn/newspaper/manual-up?signature={$signature}&access_key={$accessKey}&timestamp={$timestamp}";
+        $get = array(
+            'access_key' => config('articlespm', 'accessKey'),
+            'timestamp' => intval(microtime(true)*1000),
+        );
+        $get['signature'] = md5(config('articlespm', 'secretKey') . $get['timestamp'] . $get['access_key']);
+        $url = 'https://api.wts.xinwen.cn/newspaper/manual-up?' . http_build_query($get);
 
         $keywords = array(); //处理关键词
         foreach($params['keywords'] as $keyword) {
