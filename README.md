@@ -27,4 +27,4 @@
 * 添加文章后，观察数据库中cmstop_queue表是否有数据增加
 * 执行计划任务，观察计划任务结果
 
-![计划任务结果](https://github.com/emoontb/uploaded-files/blob/master/cmstop-articlespm/20190225171754_001.png)
+![计划任务结果](https://github.com/emoontb/uploaded-files/blob/master/cmstop-articlespm/20190225172813_002.png)
