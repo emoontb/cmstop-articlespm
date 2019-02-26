@@ -34,3 +34,6 @@
 * 执行计划任务，观察计划任务结果
 
 ![计划任务结果](https://github.com/emoontb/uploaded-files/blob/master/cmstop-articlespm/20190225172813_002.png)
+* 计划任务中执行出错的项目，可在cmstop_queue_log中找到具体的报错记录
+
+![错误日志](https://github.com/emoontb/uploaded-files/blob/master/cmstop-articlespm/20190226143653_003.png)
