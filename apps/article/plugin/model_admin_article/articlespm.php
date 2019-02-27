@@ -25,6 +25,16 @@ class plugin_articlespm extends object
         $this->articlespm();
     }
 
+    public function after_publish()
+    {
+        $this->articlespm();
+    }
+
+    public function after_pass()
+    {
+        $this->articlespm();
+    }
+
     private function articlespm()
     {
         if($this->article->data['status'] != 6) return; //状态不等于发布时跳出
