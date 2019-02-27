@@ -3,7 +3,7 @@
  * 新华智云新闻报道网上传播分析系统数据上报功能
  * article plugin，保存文章时将上报加入队列
  * 需在本文件所在目录的config.php中增加
- * 'articlespm' => array('after_add', 'after_edit')
+ * 'articlespm' => array('after_add', 'after_edit', 'after_publish', 'after_pass')
  * 制作：易木百宝，https://github.com/emoontb
  */
 class plugin_articlespm extends object
