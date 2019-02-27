@@ -31,9 +31,9 @@ class queue_articlespm extends queue_engine
         $newsImages = $matches[2];
 
         $post = array(
-            'id' => '无', //必填，报和号外id
+            'id' => '无', //必填，报和号外id，若不是报纸请填"无"
             'unitId' => config('articlespm', 'unitId'), //必填，媒体机构编号，联系@齐萌获取
-            'targetId' => $params['contentid'], //必填，但是手册中没有写，和埋点的targetId对应
+            'targetId' => $params['contentid'], //必填，稿件ID（和埋点的targetID保持一致）
             'num' => '无', //必填，总版次
             'articleType' => '无', //必填，文章类型
             'sourceUrl' => $params['url'], //必填，源url，同一家媒体机构如果重复上传同一个url（"无"除外），会覆盖之前版本
@@ -46,16 +46,15 @@ class queue_articlespm extends queue_engine
             'subTitle' => $params['subtitle'], //子标题
             'lead' => $params['description'], //导语
             'keywords' => implode(',', $keywords), //关键词，多个关键词用逗号分隔
-            'author' => $params['author']?:'无', //必填，作者
+            'author' => ($params['author']?:'无'), //必填，作者
             'newsIntro' => $newsIntro, //必填，正文
             'content' => $params['content'], //必填，正文（带html标签）
-            'hasImages' => count($newsImages)>0, //必填，是否配图
+            'hasImages' => (count($newsImages)>0?'true':'false'), //必填，是否配图
             'newsImages' => $newsImages, //配图链接，数组传递
             'contentWordsCount' => words_count($newsIntro), //字数统计
             'isNewsRelease' => 'false', //必填，是否通稿
             'isExtra' => 'false', //必填，是否号外
         );
-
         $post = preg_replace('/newsImages%5B\d+%5D/', 'newsImages', http_build_query($post));//因新华智云API对数组处理与http_build_query不同，手动修复
         $request = request($url, $post, NULL, NULL, array('CURLOPT_HTTPHEADER' => array('Content-type: application/x-www-form-urlencoded')));
         if($request['httpcode'] != 200) {
