@@ -42,8 +42,8 @@ class queue_articlespm extends queue_engine
             'pubTime' => $params['published']*1000, //必填，出版时间（时间戳，单位毫秒）
             'isTransfer' => 'false', //必填，是否转版
             'language' => 'zh', //必填，语种，符合ISO 639-1 规范，参考
-            'title' => $params['title'], //必填，标题
-            'subTitle' => $params['subtitle'], //子标题
+            'title' => strip_tags($params['title']), //必填，标题
+            'subTitle' => strip_tags($params['subtitle']), //子标题
             'lead' => $params['description'], //导语
             'keywords' => implode(',', $keywords), //关键词，多个关键词用逗号分隔
             'author' => ($params['author']?:'无'), //必填，作者
