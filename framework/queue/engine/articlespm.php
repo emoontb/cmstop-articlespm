@@ -62,7 +62,7 @@ class queue_articlespm extends queue_engine
             return false;
         }
         $result = decodeData($request['content']);
-        if(value($result, 'code', -1) != 0)) {
+        if(value($result, 'code', -1) != 0) {
             $this->_error = $request['content'];
             return false;
         }
