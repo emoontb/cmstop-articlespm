@@ -27,13 +27,13 @@
 * 修改apps/article/plugin/model_admin_article/config.php，增加一行：'articlespm' => array('after_add', 'after_edit', 'after_publish', 'after_pass')
 * 在后台计划任务中添加计划任务，参数分别为：app=article&controller=articlespm&action=cron
 
-![计划任务](https://github.com/emoontb/uploaded-files/blob/master/cmstop-articlespm/20190225171754_001.png)
+![计划任务](http://www.ymu.me/repositories/cmstop-articlespm/20190225171754_001.png)
 
 ## 调试方法
 * 添加文章后，观察数据库中cmstop_queue表是否有数据增加
 * 执行计划任务，观察计划任务结果
 
-![计划任务结果](https://github.com/emoontb/uploaded-files/blob/master/cmstop-articlespm/20190225172813_002.png)
+![计划任务结果](http://www.ymu.me/repositories/cmstop-articlespm/20190225172813_002.png)
 * 计划任务中执行出错的项目，可在cmstop_queue_log中找到具体的报错记录
 
-![错误日志](https://github.com/emoontb/uploaded-files/blob/master/cmstop-articlespm/20190226143653_003.png)
+![错误日志](http://www.ymu.me/repositories/cmstop-articlespm/20190226143653_003.png)
